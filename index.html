@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Spotify</title>
+    <!-- scripts/js -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="src/app.js"></script>
+
+    <!-- materialize -->
+    <!-- Compiled and minified CSS -->
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.0/css/materialize.min.css"> -->
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.0/js/materialize.min.js"></script>
+
+    <!-- style sheet -->
+    <link rel="stylesheet" href="src/master.css">
+
+
+    <!-- fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Rubik+Mono+One|Changa+One|Changa" rel="stylesheet">
+
+</head>
+
+<body>
+    <main class="main-container">
+        <!-- ******************** -->
+        <section id="part1">
+            <a href="#">
+                <div data-fest="bonnaroo" class="fest">
+                    <h1 data-fest="bonnaroo" class="name">Bonnaroo</h1>
+                </div>
+            </a>
+            <a href="#">
+                <div data-fest="coachella" class="fest coachella">
+                    <h1 data-fest="coachella" class="name">Coachella</h1>
+                </div>
+            </a>
+            <a href="#">
+                <div data-fest="lolapalooza" class="fest">
+                    <h1 data-fest="lolapalooza" class="name">Lolapalooza</h1>
+                </div>
+            </a>
+        </section>
+        <!-- ************************ -->
+        <section id="part2">
+            <div class="p2header">
+                <h1 class="selections" id="selected1">Select artists which you enjoy listening to.</h1>
+                <h1 class="selections" id="selected2">From the remaining, select those artist that you would like to get in to.</h1>
+                <h1 class="selections" id="selected3">Of those left, select ones that you've heard of.</h1>
+            </div>
+
+            <div id="part2Box">
+                <div id="part2InnerBox">
+
+                </div>
+
+            </div>
+            <a href="#">
+                <div class="p2button">
+                    <h2>Next Question</h2>
+                </div>
+            </a>
+        </section>
+
+        <!-- ****************************** -->
+        <section id="part3">
+            <div class="questions">
+                <form action="#">
+                    <p class="range-field">
+                        <input type="range" id="slider1" min="1" max="5" />
+                    </p>
+                </form>
+            </div>
+        </section>
+    </main>
+
+</body>
+
+</html>
