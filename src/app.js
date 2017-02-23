@@ -5,8 +5,11 @@ $(function() {
   let currentSelection = 'selected1'
   let partsObj = {}
   let selectionsObj = {}
+
+
   rooString = rooString.split(", ")
   part1()
+  // part3()
 
   function part1() {
     createHelperObjects()
@@ -74,14 +77,15 @@ $(function() {
 
     }
     partsObj = {
-      part1: false,
+      part1: true,
       part2: false,
-      part3: true
+      part3: false,
+      part4: false
     }
   }
 
   function nextSelectionButton() {
-    $('.p2button').click(function(e) {
+    $('#button1').click(function(e) {
       let nextNumber = Number(currentSelection.slice(-1)) + 1
       if (nextNumber != 4) {
         selectionsObj[currentSelection].value = false
@@ -98,6 +102,7 @@ $(function() {
   function boxClicking() {
     $('.artistBoxes').click(function(e) {
       e.preventDefault()
+      console.log();
       $(e.target).toggleClass(currentSelection)
       selectionsObj[currentSelection].names.push($(e.target).attr('data-artist'))
 
@@ -105,8 +110,22 @@ $(function() {
   }
 
   function part3() {
-    console.log("HIIIIIIIII");
-    console.log(selectionsObj);
+    $('#button2').click((e) => {
+      changePartObj()
+    })
+    $('.qContainer').mouseup((e) => {
+      console.log('ehehhehe');
+      changeEstimate()
+    })
+
+
+  }
+
+  function changeEstimate() {
+
+    let estimate = 3 * $('#slider2').val() * $('#slider3').val()
+    $('#estimate h3').html(`Estimated Playlist Length: <br><br> ${Math.round(estimate)} Minutes`)
+    console.log(`Playlist Estimate: ${Math.round(estimate)} min.`);
   }
 
 })
