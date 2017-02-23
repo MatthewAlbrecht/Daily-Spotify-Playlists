@@ -28,10 +28,6 @@ $(function() {
     }
     boxClicking()
     nextSelectionButton()
-
-
-
-
   }
 
   function showHeader() {
@@ -78,9 +74,9 @@ $(function() {
 
     }
     partsObj = {
-      part1: true,
+      part1: false,
       part2: false,
-      part3: false
+      part3: true
     }
   }
 

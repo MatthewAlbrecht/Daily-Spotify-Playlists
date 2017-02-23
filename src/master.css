@@ -197,7 +197,21 @@ a {
 /*----------------PART THREE-----------------*/
 
 #slider1 {
-    width: 100px;
+    width: 33%;
+}
+
+.qContainer {
+    width: 95%;
+    margin: 15px auto;
+    height: auto;
+    border: black 3px solid
+}
+
+.mini-container {
+    margin: 10px auto;
+    width: 85%;
+    border: white 2px solid;
+    height: auto;
 }
 
 
