@@ -50,28 +50,38 @@
                 <h1 class="selections" id="selected2">From the remaining, select those artist that you would like to get in to.</h1>
                 <h1 class="selections" id="selected3">Of those left, select ones that you've heard of.</h1>
             </div>
-
+            <div id="divHeight0" class="row buttonDiv">
+                <a href="#top" id="button1LT" class="col s2 btn-large deep-purple button1L lighten-1 waves-effect waves-light">Previous</a>
+                <a href="#top" id="button1RT" class="col s2 offset-s8 btn-large button1R deep-purple lighten-1 waves-effect waves-light">Next</a>
+            </div>
             <div id="part2Box">
                 <div id="part2InnerBox">
 
                 </div>
 
             </div>
-            <div class="buttonDiv">
-                <a href="#top" id="button1LB" class="button1L btn-large deep-purple lighten-1 waves-effect waves-light">Previous</a>
-                <a href="#top" id="button1RB" class="button1R btn-large deep-purple lighten-1 waves-effect waves-light">Next</a>
+            <div id="divHeight1" class="row buttonDiv">
+                <a href="#top" id="button1LB" class="col s2 btn-large deep-purple button1L lighten-1 waves-effect waves-light">Previous</a>
+                <a href="#top" id="button1RB" class="col s2 offset-s8 btn-large button1R deep-purple lighten-1 waves-effect waves-light">Next</a>
             </div>
 
         </section>
 
         <!-- ****************************** -->
         <section id="part3">
-
+            <div class="part3header">
+                <h1 id="p3header">Daily Playlist Settings</h1>
+            </div>
+            <div id="divHeight2" class="row buttonDiv">
+                <a href="#top" id="button2LT" class="col s2 btn-large deep-purple button2L lighten-1 waves-effect waves-light">Previous</a>
+                <a href="#top" id="button2RT" class="col s2 offset-s8 btn-large button2R deep-purple lighten-1 waves-effect waves-light">Next</a>
+            </div>
             <div class="qContainer">
-                <div id="estimate">
+
+                <div style="display: none" id="estimate">
                     <h3>Estimated Playlist Length: <br><br> 54 Minutes</h3>
                 </div>
-                <div class="mini-container">
+                <div style="display: none" class="mini-container">
                     <h3 class="question">How many days do you want your playlists spread out over?</h3>
 
                     <form action="#">
@@ -92,7 +102,7 @@
                     <hr>
                 </div>
                 <div class="mini-container">
-                    <h3 class="question">How many songs per artist?</h3>
+                    <h3 class="question">How many songs per artist that you enjoy?</h3>
 
                     <form action="#">
                         <p class="range-field">
@@ -102,23 +112,55 @@
                     <hr>
                 </div>
                 <div class="mini-container">
+                    <h3 class="question">How many songs per artist that you want to get into?</h3>
+
+                    <form action="#">
+                        <p class="range-field">
+                            <input class="slider" type="range" id="slider4" min="1" max="5" />
+                        </p>
+                    </form>
+                    <hr>
+                </div>
+                <div class="mini-container">
+                    <h3 class="question">How many songs per artist that you've heard of?</h3>
+
+                    <form action="#">
+                        <p class="range-field">
+                            <input class="slider" type="range" id="slider5" min="1" max="5" />
+                        </p>
+                    </form>
+                    <hr>
+                </div>
+                <div class="mini-container">
                     <h3 class="question">Do you want the songs to be from their top ten, their latest album, or spread out over their discography?</h3>
 
                     <form action="#">
                         <p class="range-field">
-                            <input type="range" id="slider4" min="1" max="30" />
+                            <input type="range" id="slider6" min="1" max="30" />
                         </p>
                     </form>
 
                 </div>
 
             </div>
-            <a href="#">
-                <div id="button2" class="pButton">
-                    <h2>Next Question</h2>
-                </div>
-            </a>
+            <div id="divHeight3" class="row buttonDiv">
+                <a href="#top" id="button2LB" class="col s2 btn-large deep-purple button2L lighten-1 waves-effect waves-light">Previous</a>
+                <a href="#top" id="button2RB" class="col s2 offset-s8 btn-large button2R deep-purple lighten-1 waves-effect waves-light">Next</a>
+            </div>
         </section>
+        <!-- ************************ -->
+        <section id="part4">
+            <div class="poster">
+                <h1>Header 1</h1>
+                <h2>Header 2</h2>
+                <h2>Header 2</h2>
+                <h3>Header 3</h3>
+                <h4>Header 4</h4>
+            </div>
+        </section>
+
+
+
     </main>
 
 </body>
