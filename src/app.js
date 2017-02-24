@@ -14,9 +14,11 @@ $(function() {
   function part1() {
     createHelperObjects()
     showPart()
+    part2InnerBox.html('')
     $('.fest').click(function(e) {
       festChoice = $(e.target).attr('data-fest')
-      changePartObj()
+      changePartObj(1)
+      console.log('hehehehehheheheheh');
       part2()
     })
 
@@ -53,9 +55,10 @@ $(function() {
     }
   }
 
-  function changePartObj() {
+  function changePartObj(n) {
     partsObj['part' + currentPart] = false
-    currentPart++
+    console.log(partsObj);
+    currentPart += n
     partsObj['part' + currentPart] = true
     showPart()
   }
@@ -84,25 +87,52 @@ $(function() {
     }
   }
 
+  function smoothTop(e) {
+    let target = e.target.hash
+    console.log(target);
+    $('html, body').animate({
+      scrollTop: $('#top').offset().top
+    }, 1000);
+  }
+
+  function prevHeader() {
+    let prevNumber = Number(currentSelection.slice(-1)) - 1
+    if (prevNumber != 0) {
+      changeHeader(prevNumber)
+    } else {
+      changePartObj(-1)
+
+    }
+  }
+
+  function nextHeader() {
+    let nextNumber = Number(currentSelection.slice(-1)) + 1
+    if (nextNumber != 4) {
+      changeHeader(nextNumber)
+    } else {
+      changePartObj(1)
+      part3()
+    }
+  }
+
+  function changeHeader(num) {
+    selectionsObj[currentSelection].value = false
+    currentSelection = currentSelection.slice(0, -1) + num
+    selectionsObj[currentSelection].value = true
+    showHeader()
+  }
+
   function nextSelectionButton() {
-    $('#button1').click(function(e) {
+    $('.button1R,.button1L').click(function(e) {
       e.preventDefault()
-      console.log('hehehehehehehhe');
-      let target = e.target.hash
-      console.log(target);
-      $('html, body').animate({
-        scrollTop: $('#top').offset().top
-      }, 1000);
-      let nextNumber = Number(currentSelection.slice(-1)) + 1
-      if (nextNumber != 4) {
-        selectionsObj[currentSelection].value = false
-        currentSelection = currentSelection.slice(0, -1) + nextNumber
-        selectionsObj[currentSelection].value = true
-        showHeader()
+      smoothTop(e)
+
+      if ($(e.target).hasClass('button1R')) {
+        nextHeader()
       } else {
-        changePartObj()
-        part3()
+        prevHeader()
       }
+
     })
   }
 
