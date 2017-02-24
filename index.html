@@ -10,7 +10,7 @@
 
     <!-- materialize -->
     <!-- Compiled and minified CSS -->
-    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.0/css/materialize.min.css"> -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.0/css/materialize.min.css">
     <!-- Compiled and minified JavaScript -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.0/js/materialize.min.js"></script>
 
@@ -23,7 +23,7 @@
 
 </head>
 
-<body>
+<body id="top">
     <main class="main-container">
         <!-- ******************** -->
         <section id="part1">
@@ -57,11 +57,11 @@
                 </div>
 
             </div>
-            <a href="#">
-                <div id="button1" class="pButton">
-                    <h2>Next Question</h2>
-                </div>
-            </a>
+            <div class="buttonDiv">
+                <a href="#top" id="button1LB" class="button1L btn-large deep-purple lighten-1 waves-effect waves-light">Previous</a>
+                <a href="#top" id="button1RB" class="button1R btn-large deep-purple lighten-1 waves-effect waves-light">Next</a>
+            </div>
+
         </section>
 
         <!-- ****************************** -->

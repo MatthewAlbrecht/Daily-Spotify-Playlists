@@ -5,7 +5,7 @@
     background: linear-gradient(75deg, rgba(119, 205, 155, 0.82), rgba(69, 24, 115, 0.53));
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    /*justify-content: center;*/
     min-width: 350px;
 }
 
@@ -51,26 +51,55 @@ a {
     box-shadow: inset 0px 0px 113px 8px rgba(0, 0, 0, 0.52);
 }
 
-.name {
-    font-family: 'Changa One', sans-serif;
-    letter-spacing: 3px;
-    font-size: 13vmin;
-    margin-bottom: 15px;
-    /*margin-top: 10px;*/
-    padding-top: 30px;
-    width: 100%;
-    font-weight: 900;
-    /*padding: 20px 20px;*/
-    text-align: center;
-    margin-top: 15px;
-    text-shadow: 0 1px 0 #ccc, 0 2px 0 #c9c9c9, 0 3px 0 #bbb, 0 4px 0 #b9b9b9, 0 5px 0 #aaa, 0 6px 1px rgba(0, 0, 0, .1), 0 0 5px rgba(0, 0, 0, .1), 0 1px 3px rgba(0, 0, 0, .3), 0 3px 5px rgba(0, 0, 0, .2), 0 5px 10px rgba(0, 0, 0, .25), 0 10px 10px rgba(0, 0, 0, .2), 0 20px 20px rgba(0, 0, 0, .15);
-    transition: all 0.3s ease;
+@media screen and (orientation:portrait) {
+    /* Portrait styles */
+    .name {
+        font-family: 'Changa One', sans-serif;
+        letter-spacing: 3px;
+        font-size: 11vmin;
+        margin-bottom: 15px;
+        /*margin-top: 10px;*/
+        padding-top: 20px;
+        width: 100%;
+        font-weight: 900;
+        /*padding: 20px 20px;*/
+        text-align: center;
+        margin-top: 25px;
+        text-shadow: 0 1px 0 #ccc, 0 2px 0 #c9c9c9, 0 3px 0 #bbb, 0 4px 0 #b9b9b9, 0 5px 0 #aaa, 0 6px 1px rgba(0, 0, 0, .1), 0 0 5px rgba(0, 0, 0, .1), 0 1px 3px rgba(0, 0, 0, .3), 0 3px 5px rgba(0, 0, 0, .2), 0 5px 10px rgba(0, 0, 0, .25), 0 10px 10px rgba(0, 0, 0, .2), 0 20px 20px rgba(0, 0, 0, .15);
+        transition: all 0.3s ease;
+    }
+    .name:hover, .name:hover {
+        /*margin-top: 35px;*/
+        font-size: 12vmin;
+        text-shadow: 0 0 10px rgba(255, 255, 255, 1), 0 0 20px rgba(255, 255, 255, 1), 0 0 30px rgba(255, 255, 255, 1), 0 0 40px rgb(117, 83, 255), 0 0 70px, 0 0 80px, 0 0 100px rgb(117, 83, 255);
+    }
 }
 
-.name:hover {
-    /*margin-top: 35px;*/
-    font-size: 14vmin;
-    text-shadow: 0 0 10px rgba(255, 255, 255, 1), 0 0 20px rgba(255, 255, 255, 1), 0 0 30px rgba(255, 255, 255, 1), 0 0 40px rgb(117, 83, 255), 0 0 70px, 0 0 80px, 0 0 100px rgb(117, 83, 255);
+
+/* Landscape */
+
+@media screen and (orientation:landscape) {
+    /* Landscape styles */
+    .name {
+        font-family: 'Changa One', sans-serif;
+        letter-spacing: 3px;
+        font-size: 18vmin;
+        margin-bottom: 15px;
+        /*margin-top: 10px;*/
+        padding-top: 20px;
+        width: 100%;
+        font-weight: 900;
+        /*padding: 20px 20px;*/
+        text-align: center;
+        margin-top: 25px;
+        text-shadow: 0 1px 0 #ccc, 0 2px 0 #c9c9c9, 0 3px 0 #bbb, 0 4px 0 #b9b9b9, 0 5px 0 #aaa, 0 6px 1px rgba(0, 0, 0, .1), 0 0 5px rgba(0, 0, 0, .1), 0 1px 3px rgba(0, 0, 0, .3), 0 3px 5px rgba(0, 0, 0, .2), 0 5px 10px rgba(0, 0, 0, .25), 0 10px 10px rgba(0, 0, 0, .2), 0 20px 20px rgba(0, 0, 0, .15);
+        transition: all 0.3s ease;
+    }
+    .name:hover, .name:hover {
+        /*margin-top: 35px;*/
+        font-size: 20vmin;
+        text-shadow: 0 0 10px rgba(255, 255, 255, 1), 0 0 20px rgba(255, 255, 255, 1), 0 0 30px rgba(255, 255, 255, 1), 0 0 40px rgb(117, 83, 255), 0 0 70px, 0 0 80px, 0 0 100px rgb(117, 83, 255);
+    }
 }
 
 
@@ -96,34 +125,75 @@ a {
     /*min-width: 270px;*/
 }
 
-#part2 {
-    display: none;
+@media screen and (orientation:portrait) {
+    /* Portrait styles */
+    .artistBoxes {
+        box-sizing: border-box;
+        display: inline-block;
+        border-left: 1px dotted rgba(69, 24, 115, 0.4);
+        border-right: 1px dotted rgba(69, 24, 115, 0.4);
+        border-collapse: collapse;
+        margin: 8px 0;
+        font-family: 'Changa One', sans-serif;
+        padding: 25px;
+        line-height: 25px;
+        font-size: 3vh;
+        background: linear-gradient(25deg, rgba(50, 205, 155, 0.82), rgba(119, 205, 155, 0.82))
+    }
+    .selections {
+        font-family: 'Changa', sans-serif;
+        font-size: 4vh;
+        padding: 15px;
+        font-weight: 400;
+        color: ghostwhite;
+    }
+    /*.artistBoxes:hover {
+        color: white;
+        background: linear-gradient(25deg, rgba(69, 24, 115, 0.82), rgba(69, 24, 144, 0.82));
+    }*/
+    /*.artistBoxes:active {
+        color: white;
+        -webkit-box-shadow: inset 0px 0px 113px 2px rgba(0, 0, 0, 0.52);
+        -moz-box-shadow: inset 0px 0px 113px 2px rgba(0, 0, 0, 0.52);
+        box-shadow: inset 0px 0px 113px 2px rgba(0, 0, 0, 0.52);
+    }*/
 }
 
-.artistBoxes {
-    box-sizing: border-box;
-    display: inline-block;
-    border-left: 1px dotted rgba(69, 24, 115, 0.4);
-    border-right: 1px dotted rgba(69, 24, 115, 0.4);
-    border-collapse: collapse;
-    margin: 8px 0;
-    font-family: 'Changa One', sans-serif;
-    padding: 8px;
-    line-height: 25px;
-    font-size: 3vh;
-    background: linear-gradient(25deg, rgba(50, 205, 155, 0.82), rgba(119, 205, 155, 0.82))
-}
 
-.artistBoxes:hover {
-    color: white;
-    background: linear-gradient(25deg, rgba(69, 24, 115, 0.82), rgba(69, 24, 144, 0.82));
-}
+/* Landscape */
 
-.artistBoxes:active {
-    color: white;
-    -webkit-box-shadow: inset 0px 0px 113px 2px rgba(0, 0, 0, 0.52);
-    -moz-box-shadow: inset 0px 0px 113px 2px rgba(0, 0, 0, 0.52);
-    box-shadow: inset 0px 0px 113px 2px rgba(0, 0, 0, 0.52);
+@media screen and (orientation:landscape) {
+    /* Landscape styles */
+    .artistBoxes {
+        box-sizing: border-box;
+        display: inline-block;
+        border-left: 1px dotted rgba(69, 24, 115, 0.4);
+        border-right: 1px dotted rgba(69, 24, 115, 0.4);
+        border-collapse: collapse;
+        margin: 8px 0;
+        font-family: 'Changa One', sans-serif;
+        padding: 15px;
+        line-height: 25px;
+        font-size: 4vh;
+        background: linear-gradient(25deg, rgba(50, 205, 155, 0.82), rgba(119, 205, 155, 0.82))
+    }
+    .selections {
+        font-family: 'Changa', sans-serif;
+        font-size: 6vh;
+        padding: 15px;
+        font-weight: 400;
+        color: ghostwhite;
+    }
+    /*.artistBoxes:hover {
+        color: white;
+        background: linear-gradient(25deg, rgba(69, 24, 115, 0.82), rgba(69, 24, 144, 0.82));
+    }*/
+    /*.artistBoxes:active {
+        color: white;
+        -webkit-box-shadow: inset 0px 0px 113px 2px rgba(0, 0, 0, 0.52);
+        -moz-box-shadow: inset 0px 0px 113px 2px rgba(0, 0, 0, 0.52);
+        box-shadow: inset 0px 0px 113px 2px rgba(0, 0, 0, 0.52);
+    }*/
 }
 
 .selected1 {
@@ -132,20 +202,23 @@ a {
     -webkit-box-shadow: inset 0px 0px 19px 1px rgba(255, 255, 255, 0.38);
     -moz-box-shadow: inset 0px 0px 19px 1px rgba(255, 255, 255, 0.38);
     box-shadow: inset 0px 0px 19px 1px rgba(255, 255, 255, 0.38);
-    border: 0px;
+    border-left: 1px dotted rgba(69, 24, 115, 0);
+    border-right: 1px dotted rgba(69, 24, 115, 0);
 }
 
 .selected2 {
     color: white;
     background: linear-gradient(25deg, rgba(69, 24, 115, 0.82), rgba(69, 24, 144, 0.82));
-    border: 0;
+    border-left: 1px dotted rgba(69, 24, 115, 0);
+    border-right: 1px dotted rgba(69, 24, 115, 0);
 }
 
 .selected3 {
     -webkit-box-shadow: inset 0px 0px 19px 1px rgba(0, 0, 0, 0.48);
     -moz-box-shadow: inset 0px 0px 19px 1px rgba(0, 0, 0, 0.48);
     box-shadow: inset 0px 0px 19px 1px rgba(0, 0, 0, 0.48);
-    border: 0;
+    border-left: 1px dotted rgba(69, 24, 115, 0);
+    border-right: 1px dotted rgba(69, 24, 115, 0);
 }
 
 .p2header {
@@ -161,18 +234,22 @@ a {
     border: 2px rgba(69, 24, 115, .53) double;
 }
 
-.selections {
+.button1L {
+    margin-bottom: 30px;
     font-family: 'Changa', sans-serif;
-    font-size: 4vh;
-    padding: 15px;
-    font-weight: 400;
+    padding: 1rem;
+    height: 80px;
+    float: left;
+    font-size: 24px;
 }
 
-.pButton {
-    width: 200px;
-    height: 75px;
-    margin: 15px auto;
-    background: rgba(69, 24, 115, 0.84);
+.button1R {
+    margin-bottom: 30px;
+    font-family: 'Changa', sans-serif;
+    padding: 1rem;
+    height: 80px;
+    float: right;
+    font-size: 24px;
 }
 
 .pButton:hover {
@@ -180,19 +257,6 @@ a {
     -webkit-box-shadow: inset 0px 0px 113px 2px rgba(0, 0, 0, 0.52);
     -moz-box-shadow: inset 0px 0px 113px 2px rgba(0, 0, 0, 0.52);
     box-shadow: inset 0px 0px 113px 2px rgba(0, 0, 0, 0.52);
-}
-
-.pButton h2 {
-    font-family: 'Changa', sans-serif;
-    font-size: 4vh;
-    padding: 15px 0;
-    text-align: center;
-    font-weight: 400;
-    color: rgb(207, 216, 220);
-}
-
-.pButton h2:hover {
-    color: white;
 }
 
 
@@ -247,157 +311,4 @@ a {
     right: 30px;
     top: 30px;
     padding: auto 0;
-}
-
-
-/* Range
-   ========================================================================== */
-
-.range-field {
-    position: relative;
-}
-
-input[type=range], input[type=range]+.thumb {
-    cursor: pointer;
-}
-
-input[type=range] {
-    position: relative;
-    background-color: transparent;
-    border: none;
-    outline: none;
-    width: 100%;
-    margin: 15px 0;
-    padding: 0;
-}
-
-input[type=range]:focus {
-    outline: none;
-}
-
-input[type=range]+.thumb {
-    position: absolute;
-    border: none;
-    height: 0;
-    width: 0;
-    border-radius: 50%;
-    background-color: #26a69a;
-    top: 10px;
-    margin-left: -6px;
-    -webkit-transform-origin: 50% 50%;
-    transform-origin: 50% 50%;
-    -webkit-transform: rotate(-45deg);
-    transform: rotate(-45deg);
-}
-
-input[type=range]+.thumb .value {
-    display: block;
-    width: 30px;
-    text-align: center;
-    color: #26a69a;
-    font-size: 0;
-    -webkit-transform: rotate(45deg);
-    transform: rotate(45deg);
-}
-
-input[type=range]+.thumb.active {
-    border-radius: 50% 50% 50% 0;
-}
-
-input[type=range]+.thumb.active .value {
-    color: #fff;
-    margin-left: -1px;
-    margin-top: 8px;
-    font-size: 10px;
-    /*background: black;*/
-}
-
-input[type=range] {
-    -webkit-appearance: none;
-}
-
-input[type=range]::-webkit-slider-runnable-track {
-    height: 3px;
-    background: #c2c0c2;
-    border: none;
-}
-
-input[type=range]::-webkit-slider-thumb {
-    -webkit-appearance: none;
-    border: none;
-    height: 14px;
-    width: 14px;
-    border-radius: 50%;
-    background-color: #26a69a;
-    -webkit-transform-origin: 50% 50%;
-    transform-origin: 50% 50%;
-    margin: -5px 0 0 0;
-    transition: .3s;
-}
-
-input[type=range]:focus::-webkit-slider-runnable-track {
-    background: #ccc;
-}
-
-input[type=range] {
-    /* fix for FF unable to apply focus style bug  */
-    border: 1px solid white;
-    /*required for proper track sizing in FF*/
-}
-
-input[type=range]::-moz-range-track {
-    height: 3px;
-    background: #ddd;
-    border: none;
-}
-
-input[type=range]::-moz-range-thumb {
-    border: none;
-    height: 14px;
-    width: 14px;
-    border-radius: 50%;
-    background: #26a69a;
-    margin-top: -5px;
-}
-
-input[type=range]:-moz-focusring {
-    outline: 1px solid #fff;
-    outline-offset: -1px;
-}
-
-input[type=range]:focus::-moz-range-track {
-    background: #ccc;
-}
-
-input[type=range]::-ms-track {
-    height: 3px;
-    background: transparent;
-    border-color: transparent;
-    border-width: 6px 0;
-    /*remove default tick marks*/
-    color: transparent;
-}
-
-input[type=range]::-ms-fill-lower {
-    background: #777;
-}
-
-input[type=range]::-ms-fill-upper {
-    background: #ddd;
-}
-
-input[type=range]::-ms-thumb {
-    border: none;
-    height: 14px;
-    width: 14px;
-    border-radius: 50%;
-    background: #26a69a;
-}
-
-input[type=range]:focus::-ms-fill-lower {
-    background: #888;
-}
-
-input[type=range]:focus::-ms-fill-upper {
-    background: #ccc;
 }

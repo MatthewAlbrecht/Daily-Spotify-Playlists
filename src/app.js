@@ -86,6 +86,13 @@ $(function() {
 
   function nextSelectionButton() {
     $('#button1').click(function(e) {
+      e.preventDefault()
+      console.log('hehehehehehehhe');
+      let target = e.target.hash
+      console.log(target);
+      $('html, body').animate({
+        scrollTop: $('#top').offset().top
+      }, 1000);
       let nextNumber = Number(currentSelection.slice(-1)) + 1
       if (nextNumber != 4) {
         selectionsObj[currentSelection].value = false
@@ -122,7 +129,6 @@ $(function() {
   }
 
   function changeEstimate() {
-
     let estimate = 3 * $('#slider2').val() * $('#slider3').val()
     $('#estimate h3').html(`Estimated Playlist Length: <br><br> ${Math.round(estimate)} Minutes`)
     console.log(`Playlist Estimate: ${Math.round(estimate)} min.`);
