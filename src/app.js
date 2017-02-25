@@ -5,15 +5,20 @@ $(function() {
   let festChoice = ''
   let currentPart = 1;
   let part2InnerBox = $('#part2InnerBox')
+  let part4Element = $('#part4')
   let currentSelection = 'selected1'
   let partsObj = {}
   let selectionsObj = {}
   let artistObj = {}
-
-
+  let posterArray = []
   rooString = rooString.split(", ")
+  let artistAmount = rooString.length
+  let posterCounter = 1
+
   part1()
+  // part2()
   // part3()
+  // part4()
 
   function part1() {
     createHelperObjects()
@@ -104,10 +109,127 @@ $(function() {
       }
     }
     artistObj = {
-      liked: [],
-      wants: [],
-      heardOf: [],
-      other: []
+      "liked": {
+        names: [
+          "U2",
+          "Red Hot Chili Peppers",
+          "Chance The Rapper",
+          "Flume",
+          "Travis Scott",
+          "Cage The Elephant",
+          "The Head and The Heart",
+          "Big Gigantic",
+          "Glass Animals",
+          "Umphrey's McGee",
+          "Portugal The Man",
+          "Cold War Kids",
+          "Royal Blood",
+          "Michael Kiwanuka",
+          "D.R.A.M.",
+          "NGHTMRE",
+          "Snails",
+          "Flatbush Zombies",
+          "Herobust",
+          "No Name"
+        ],
+        tag: 1
+      },
+      "wants": {
+        names: [
+          "The Weeknd",
+          "Lorde",
+          "The xx",
+          "Future Islands",
+          "Crystal Castles",
+          "Milky Chance",
+          "Yellow Claw",
+          "Car Seat Headrest",
+          "Gallant",
+          "Louis The Child",
+          "Borgore",
+          "Getter",
+          "Francis and The Lights",
+          "BADBADNOTGOOD",
+          "The Front Bottoms",
+          "G. Jones",
+          "Preservation Hall Jazz Band",
+          "Goldfish",
+          "San Holo",
+          "Haywyre",
+          "Hippo Campus",
+          "Vanic",
+          "The Orwells",
+          "Stick Figure"
+        ],
+        tag: 2
+      },
+      "heardOf": {
+        names: [
+          "Major Lazer",
+          "Marhsmello",
+          "Tory Lanez",
+          "Tove Lo",
+          "The Strumbellas",
+          "Dua Lipa",
+          "Illenium",
+          "Claude Vonstroke",
+          "Greensky Bluegrass",
+          "Ten Fe",
+          "Big Jesus"
+        ],
+        tag: 3
+      },
+      "other": {
+        names: [
+          "Tegan and Sara",
+          "Kaleo",
+          "Russ",
+          "Jon Bellion",
+          "James Vincent McMorrow",
+          "Joseph",
+          "Amine",
+          "Margo Price",
+          "Cam",
+          "Bad Suns",
+          "Coin",
+          "Mandolin Orange",
+          "Eden",
+          "Rainbow Kitten Surprise",
+          "Ookay",
+          "Kevin Morby",
+          "Leon",
+          "Albin Lee Meldau",
+          "Rezz",
+          "Angelique Kidjo",
+          "Deap Vally",
+          "Luke Combs",
+          "Unlike Pluto",
+          "Kaiydo",
+          "Nightly",
+          "Mondo Cozmo",
+          "Barclay Crenshaw v. Goody Grace",
+          "July Talk",
+          "Turkuaz",
+          "Lucy Dacus",
+          "Klangstof",
+          "Kevin Abstract",
+          "Khruangbin",
+          "The Lemon Twigs",
+          "Wilderado",
+          "Twin Limb",
+          "Twiddle",
+          "White Reaper",
+          "River Whyless",
+          "Alexandra Savior",
+          "Lukas Nelson",
+          "Promise Of The Real",
+          "Innanet James",
+          "Ganja White Night",
+          "Welles",
+          "Aaron Lee Tasjan"
+        ],
+        tag: 3
+      }
     }
   }
 
@@ -200,9 +322,68 @@ $(function() {
   // *****************************  RANDOMIZATION
 
   function part4() {
-    createArtistObj()
-    $('#slider2').val()
+    // createArtistObj()
+    shuffleLists()
+    posterSetUp()
 
+
+  }
+
+  function posterSetUp() {
+    let artistPerDay = $('#slider2').val()
+    let artistDivide = artistAmount / artistPerDay
+    let artistMod = artistAmount % artistPerDay
+    console.log('artistDivide:', artistDivide, 'artistAmount:', artistAmount, 'artistMod:', artistMod, 'artistPerDay', artistPerDay);
+    createPosterDivs(Math.floor(artistDivide), artistMod)
+  }
+
+  function shuffleLists() {
+    artistObj.liked.names.shuffle()
+    artistObj.wants.names.shuffle()
+    artistObj.heardOf.names.shuffle()
+    artistObj.other.names.shuffle()
+  }
+
+  function createPosterDivs(posterAmount, extras) {
+    part4Element.empty()
+    //part4Element.children.remove()
+    //part4Element.html('')
+    for (var i = 0; i < posterAmount; i++) {
+      let posterContainer = $(`<div class="posterContainer"></div>`)
+      let posterHeader = $(`<h1 class="posterHeader">Daily Playlist #${i+1}</h1>`).appendTo(posterContainer)
+      let poster = $(`<div class="poster"></div>`).appendTo(posterContainer)
+      posterArray.push(posterContainer)
+    }
+    addArtistToPosters(posterAmount)
+
+
+
+
+  }
+
+  function addArtistToPosters(posterAmount) {
+    let counter = 0
+    for (var selects in artistObj) {
+
+      for (name of artistObj[selects].names) {
+        // console.log('here');
+        let hx = $(`<h${artistObj[selects].tag}></h${artistObj[selects].tag}>`)
+        // console.log(posterArray[counter % posterAmount].children(1)[0]);
+        console.log(counter, name);
+        posterArray[counter % posterAmount].children().eq(1).append(hx.text(name))
+        counter++
+      }
+    }
+    shuffleAndDeployPosters()
+  }
+
+  function shuffleAndDeployPosters() {
+    posterArray.shuffle()
+    for (var i = 0; i < posterArray.length; i++) {
+      poster = posterArray[i]
+      poster.children().eq(0).text(`Daily Playlist #${i+1}`)
+      poster.appendTo(part4Element)
+    }
   }
 
   function createArtistObj() {
@@ -210,13 +391,13 @@ $(function() {
 
       let name = $(band).text()
       if ($(band).hasClass('selected1')) {
-        artistObj.liked.push(name)
+        artistObj.liked.names.push(name)
       } else if ($(band).hasClass('selected2')) {
-        artistObj.wants.push(name)
+        artistObj.wants.names.push(name)
       } else if ($(band).hasClass('selected3')) {
-        artistObj.heardOf.push(name)
+        artistObj.heardOf.names.push(name)
       } else {
-        artistObj.other.push(name)
+        artistObj.other.names.push(name)
       }
 
     })
@@ -224,3 +405,14 @@ $(function() {
 
 
 })
+
+Array.prototype.shuffle = function() {
+
+  for (var i = this.length - 1; i > 0; i--) {
+    var j = Math.floor(Math.random() * (i + 1));
+    var temp = this[i];
+    this[i] = this[j];
+    this[j] = temp;
+  }
+  return this;
+}
