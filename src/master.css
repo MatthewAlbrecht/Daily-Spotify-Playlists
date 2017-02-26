@@ -2,7 +2,8 @@
 
 .main-container {
     min-height: 100vh;
-    background: linear-gradient(75deg, rgba(119, 205, 155, 0.82), rgba(69, 24, 115, 0.53));
+    /*background: linear-gradient(75deg, rgba(119, 205, 155, 0.82), rgba(69, 24, 115, 0.53));*/
+    background: url(../images/ricepaper2.png) repeat;
     display: flex;
     flex-direction: column;
     /*justify-content: center;*/
@@ -234,11 +235,13 @@ a {
     border: 2px rgba(69, 24, 115, .53) double;
 }
 
-.buttonDiv .s2 {
+.buttonDiv .s2, .buttonDiv .s4 {
     font-size: 25px;
     height: 100px;
+    color: black;
     /*padding: 0;*/
-    padding: 1.5rem;
+    /*background-color: #ce93d8;*/
+    padding: 1.7rem;
 }
 
 
@@ -495,11 +498,13 @@ input[type=range] {
 
 .posterHeader {
     text-align: center;
-    font-family: 'Changa One', sans-serif;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
     font-size: 7rem;
     margin-bottom: 50px;
     color: ghostwhite;
-    background-color: rgba(69, 24, 115, 1);
+    background-color: #4db6ac;
+    /*text-transform: uppercase;*/
     color: transparent;
     text-shadow: 0px 4px 6px rgba(255, 255, 255, 0.3);
     -webkit-background-clip: text;
@@ -514,15 +519,20 @@ input[type=range] {
     border: 3px ghostwhite solid;
     text-align: center;
     background: white;
-    -webkit-box-shadow: 0px 0px 19px 0px rgba(0, 0, 0, 0.75);
-    -moz-box-shadow: 0px 0px 19px 0px rgba(0, 0, 0, 0.75);
-    box-shadow: 0px 0px 19px 0px rgba(0, 0, 0, 0.75);
     transform: skewX(-2deg);
-    border: 6px outset #2eb9ce;
+    /*border: 6px outset #2eb9ce;*/
 }
 
 .poster * {
     transform: skewX(-2deg);
     font-family: 'Changa', sans-serif;
     margin: 50px 0;
+}
+
+.poster:last-of-type {
+    /*margin-bottom: 40px;*/
+}
+
+#reshuffle {
+    font-size: 30px;
 }

@@ -11,14 +11,18 @@ $(function() {
   let selectionsObj = {}
   let artistObj = {}
   let posterArray = []
+  let nameArray = []
+
+
   rooString = rooString.split(", ")
   let artistAmount = rooString.length
   let posterCounter = 1
 
   part1()
-  // part2()
-  // part3()
-  // part4()
+  part2()
+  part3()
+  part4()
+  part5()
 
   function part1() {
     createHelperObjects()
@@ -90,24 +94,161 @@ $(function() {
       },
 
     }
+
+
     partsObj = {
       part1: {
-        on: true,
+        on: false,
         hasCalled: true
       },
       part2: {
         on: false,
-        hasCalled: false
+        hasCalled: true
       },
       part3: {
         on: false,
-        hasCalled: false
+        hasCalled: true
       },
       part4: {
-        on: false,
-        hasCalled: false
+        on: true,
+        hasCalled: true
       }
     }
+
+
+  }
+
+  function smoothTop(e) {
+    let target = e.target.hash
+    $('html, body').animate({
+      scrollTop: $('#top').offset().top
+    }, 1000);
+  }
+
+  function prevHeader() {
+    let prevNumber = Number(currentSelection.slice(-1)) - 1
+    if (prevNumber != 0) {
+      changeHeader(prevNumber)
+    } else {
+      changePartObj(-1)
+
+    }
+  }
+
+  function nextHeader() {
+    let nextNumber = Number(currentSelection.slice(-1)) + 1
+    if (nextNumber != 4) {
+      changeHeader(nextNumber)
+    } else {
+
+      if (!partsObj.part3.hasCalled) {
+        console.log('hehehehehehhe');
+        part3()
+      }
+      changePartObj(1)
+
+    }
+  }
+
+  function changeHeader(num) {
+    selectionsObj[currentSelection].value = false
+    currentSelection = currentSelection.slice(0, -1) + num
+    selectionsObj[currentSelection].value = true
+    showHeader()
+  }
+
+  function nextSelectionButton() {
+    $('.button1R,.button1L').click(function(e) {
+      e.preventDefault()
+      smoothTop(e)
+
+      if ($(e.target).hasClass('button1R')) {
+        nextHeader()
+      } else {
+        prevHeader()
+      }
+
+    })
+  }
+
+  function boxClicking() {
+    $('.artistBoxes').click(function(e) {
+      e.preventDefault()
+      $(e.target).toggleClass(currentSelection)
+      selectionsObj[currentSelection].names.push($(e.target).attr('data-artist'))
+
+    })
+  }
+
+  function part3() {
+    $('.button2L').click((e) => {
+      changePartObj(-1)
+    })
+    $('.button2R').click((e) => {
+      if (!partsObj.part4.hasCalled) {
+        part4()
+      }
+      changePartObj(1)
+    })
+
+    $('.qContainer').mouseup((e) => {
+      changeEstimate()
+    })
+
+
+  }
+
+  function changeEstimate() {
+    let estimate = 3 * $('#slider2').val() * $('#slider3').val()
+    $('#estimate h3').html(`Estimated Playlist Length: <br><br> ${Math.round(estimate)} Minutes`)
+  }
+
+  // *****************************  RANDOMIZATION
+
+  function part4() {
+    let artistPerDay = $('#slider2').val()
+    let artistDivide = artistAmount / artistPerDay
+    let artistMod = artistAmount % artistPerDay
+
+
+    createPosterDivs(Math.floor(artistDivide), artistMod)
+
+    $('#reshuffle').click((e) => {
+      smoothTop(e)
+      setTimeout(function() {
+        createPosterDivs(Math.floor(artistDivide), artistMod)
+
+      }, 1250)
+    })
+
+    $('.button3R').click((e) => {
+      smoothTop(e)
+      $('#reshuffle').parent().hide()
+      $('.button3R').parent().hide()
+      part5()
+
+    })
+  }
+
+  function initializeArtistObj() {
+    // artistObj = {
+    //   liked: {
+    //     names: [],
+    //     tag: 1
+    //   },
+    //   wants: {
+    //     names: [],
+    //     tag: 2
+    //   },
+    //   heardOf: {
+    //     names: [],
+    //     tag: 3
+    //   },
+    //   other: {
+    //     names: [],
+    //     tag: 3
+    //   }
+    // }
     artistObj = {
       "liked": {
         names: [
@@ -233,110 +374,6 @@ $(function() {
     }
   }
 
-  function smoothTop(e) {
-    let target = e.target.hash
-    $('html, body').animate({
-      scrollTop: $('#top').offset().top
-    }, 1000);
-  }
-
-  function prevHeader() {
-    let prevNumber = Number(currentSelection.slice(-1)) - 1
-    if (prevNumber != 0) {
-      changeHeader(prevNumber)
-    } else {
-      changePartObj(-1)
-
-    }
-  }
-
-  function nextHeader() {
-    let nextNumber = Number(currentSelection.slice(-1)) + 1
-    if (nextNumber != 4) {
-      changeHeader(nextNumber)
-    } else {
-
-      if (!partsObj.part3.hasCalled) {
-        console.log('hehehehehehhe');
-        part3()
-      }
-      changePartObj(1)
-
-    }
-  }
-
-  function changeHeader(num) {
-    selectionsObj[currentSelection].value = false
-    currentSelection = currentSelection.slice(0, -1) + num
-    selectionsObj[currentSelection].value = true
-    showHeader()
-  }
-
-  function nextSelectionButton() {
-    $('.button1R,.button1L').click(function(e) {
-      e.preventDefault()
-      smoothTop(e)
-
-      if ($(e.target).hasClass('button1R')) {
-        nextHeader()
-      } else {
-        prevHeader()
-      }
-
-    })
-  }
-
-  function boxClicking() {
-    $('.artistBoxes').click(function(e) {
-      e.preventDefault()
-      $(e.target).toggleClass(currentSelection)
-      selectionsObj[currentSelection].names.push($(e.target).attr('data-artist'))
-
-    })
-  }
-
-  function part3() {
-    $('.button2L').click((e) => {
-      console.log('at part3()', partsObj);
-      changePartObj(-1)
-    })
-    $('.button2R').click((e) => {
-      if (!partsObj.part4.hasCalled) {
-        part4()
-      }
-      changePartObj(1)
-    })
-
-    $('.qContainer').mouseup((e) => {
-      changeEstimate()
-    })
-
-
-  }
-
-  function changeEstimate() {
-    let estimate = 3 * $('#slider2').val() * $('#slider3').val()
-    $('#estimate h3').html(`Estimated Playlist Length: <br><br> ${Math.round(estimate)} Minutes`)
-  }
-
-  // *****************************  RANDOMIZATION
-
-  function part4() {
-    // createArtistObj()
-    shuffleLists()
-    posterSetUp()
-
-
-  }
-
-  function posterSetUp() {
-    let artistPerDay = $('#slider2').val()
-    let artistDivide = artistAmount / artistPerDay
-    let artistMod = artistAmount % artistPerDay
-    console.log('artistDivide:', artistDivide, 'artistAmount:', artistAmount, 'artistMod:', artistMod, 'artistPerDay', artistPerDay);
-    createPosterDivs(Math.floor(artistDivide), artistMod)
-  }
-
   function shuffleLists() {
     artistObj.liked.names.shuffle()
     artistObj.wants.names.shuffle()
@@ -345,9 +382,9 @@ $(function() {
   }
 
   function createPosterDivs(posterAmount, extras) {
-    part4Element.empty()
-    //part4Element.children.remove()
-    //part4Element.html('')
+    $('#playlist-container').empty()
+    posterArray = []
+    initializeArtistObj()
     for (var i = 0; i < posterAmount; i++) {
       let posterContainer = $(`<div class="posterContainer"></div>`)
       let posterHeader = $(`<h1 class="posterHeader">Daily Playlist #${i+1}</h1>`).appendTo(posterContainer)
@@ -355,14 +392,12 @@ $(function() {
       posterArray.push(posterContainer)
     }
     addArtistToPosters(posterAmount)
-
-
-
-
   }
 
   function addArtistToPosters(posterAmount) {
     let counter = 0
+    // createArtistObj()
+    shuffleLists()
     for (var selects in artistObj) {
 
       for (name of artistObj[selects].names) {
@@ -382,7 +417,7 @@ $(function() {
     for (var i = 0; i < posterArray.length; i++) {
       poster = posterArray[i]
       poster.children().eq(0).text(`Daily Playlist #${i+1}`)
-      poster.appendTo(part4Element)
+      poster.appendTo($('#playlist-container'))
     }
   }
 
@@ -403,6 +438,68 @@ $(function() {
     })
   }
 
+  // -------------------Part 5 -----------------------
+  function part5() {
+    $('.poster').click((e) => {
+      nameArray = []
+      if ($(e.target).hasClass('poster')) {
+        let children = $(e.target).children().each((i, child) => nameArray.push($(child).text()))
+      } else {
+        let children = $(e.target).parent().children().each((i, child) => nameArray.push($(child).text()))
+        console.log(nameArray);
+      }
+      posterToSpotify()
+    })
+
+
+  }
+
+  function getArtists(artist) {
+    return $.ajax({
+      url: 'https://api.spotify.com/v1/search',
+      method: 'GET',
+      dataType: 'json',
+      data: {
+        type: 'artist',
+        q: artist
+      }
+    })
+  }
+
+  function getArtistTopTracks(artistId) {
+    return $.ajax({
+      url: `https://api.spotify.com/v1/artists/${artistId}/top-tracks`,
+      method: 'GET',
+      dataType: 'json',
+      data: {
+        country: 'US'
+      }
+    })
+  }
+
+
+
+  function posterToSpotify() {
+    let searchResults = nameArray.map(function(name) {
+      return getArtists(name)
+    })
+
+    $.when(...searchResults)
+      .then((...searchResults) => {
+        searchResults = searchResults.map((a) => a[0].artists.items[0])
+        getTopTracks(searchResults)
+        console.log(searchResults);
+      })
+  }
+
+  function getTopTracks(artists) {
+    let tTracks = artists.map(artist => getArtistTopTracks(artist.id))
+    $.when(...tTracks)
+      .then((...tTrackss) => {
+        let topTracks = tTracks.map(t => t.responseJSON.tracks)
+        console.log(topTracks);
+      })
+  }
 
 })
 
