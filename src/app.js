@@ -147,6 +147,11 @@ $(function() {
         on: false,
         hasCalled: false,
         container: $('#playlist-container')
+      },
+      part5: {
+        on: false,
+        hasCalled: false,
+        container: $('#playlist-container')
       }
     }
 
@@ -193,13 +198,11 @@ $(function() {
   }
 
   function nextSelectionButton() {
-    console.log('eheheheheheheh');
     $('.P2').click(function(e) {
       e.preventDefault()
       smoothTop(e)
 
       if ($(e.target).hasClass('R')) {
-        console.log('hehehehehehehehehheheheheheh');
         nextHeader()
       } else {
         prevHeader()
@@ -244,6 +247,11 @@ $(function() {
   // *****************************  RANDOMIZATION
 
   function part4() {
+    $('#hiddenReshuffle').trigger("mouseenter.tooltip");
+    setTimeout(function() {
+      $("#hiddenReshuffle").trigger("mouseleave.tooltip");
+    }, 2000);
+    
     let artistPerDay = $('#slider2').val()
     let artistDivide = artistAmount / artistPerDay
     let artistMod = artistAmount % artistPerDay
@@ -259,11 +267,21 @@ $(function() {
       }, 1100)
     })
 
-    $('.P4.R').click((e) => {
-      smoothTop(e)
-      $('#reshuffle').parent().hide()
-      $('#button4R').parent().hide()
-      part5()
+    $('.P4').click((e) => {
+      if ($(e.target).hasClass('R')) {
+        console.log('been clicked');
+        smoothTop(e)
+        // $('#reshuffle').parent().hide()
+        // $('#button4R').parent().hide()
+        let element = $('#playlist-container').detach()
+        $('#part5').append(element)
+        if (!partsObj.part5.hasCalled) {
+          part5()
+        }
+        changePartObj(1)
+      } else if ($(e.target).hasClass('L')) {
+        changePartObj(-1)
+      }
 
     })
   }

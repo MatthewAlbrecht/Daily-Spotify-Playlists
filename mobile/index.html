@@ -6,7 +6,7 @@
     <title>FestivalSelect</title>
     <!-- scripts/js -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-    <script src="src/app.js"></script>
+    <script src="../src/app.js"></script>
 
     <!-- materialize -->
     <!-- Compiled and minified CSS -->
@@ -15,7 +15,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.0/js/materialize.min.js"></script>
 
     <!-- style sheet -->
-    <link rel="stylesheet" href="src/master.css">
+    <link rel="stylesheet" href="../css/mobile.css">
 
     <!-- fonts -->
     <link href="https://fonts.googleapis.com/css?family=Rubik+Mono+One|Changa+One|Changa|Montserrat:600" rel="stylesheet">
@@ -70,7 +70,7 @@
         <!-- ****************************** -->
         <section id="part3">
             <div class="part3header header">
-                <h1 id="p3header">Daily Playlist Settings</h1>
+                <h1 id="p3header">Playlist Preferences</h1>
             </div>
             <div class="qContainer">
 
@@ -126,7 +126,7 @@
                 </div>
 
             </div>
-            <div id="divHeight1" class="buttonDiv">
+            <div class="buttonDiv">
                 <a href="#top" id="button3L" class="button L waves-effect waves-light"><i class="material-icons P3 L md-48">arrow_back</i></a>
                 <a href="#top" id="button3R" class="button R  waves-effect waves-light"><i class="material-icons P3 R md-48">arrow_forward</i></a>
             </div>
@@ -136,16 +136,17 @@
             <div id="playlist-container">
 
             </div>
-            <div class="row">
-                <div class="buttonDiv reshuffle">
-                    <a href="#top" id="reshuffle" class="col purple lighten-4 s4 offset-s4 btn-large  reshuffle  waves-effect waves-light">Re-Shuffle</a>
-                </div>
 
-            </div>
-            <div id="divHeight1" class="buttonDiv">
+            <div class="buttonDiv">
                 <a href="#top" id="button4L" class="button L waves-effect waves-light"><i class="material-icons P4 L md-48">arrow_back</i></a>
-                <a href="#top" id="button4R" class="button R  waves-effect waves-light"><i class="material-icons P4 R md-48">arrow_forward</i></a>
+                <a id="hiddenReshuffle" class="btn button tooltipped reshuffle" data-position="top" data-delay="50" data-tooltip="Hit me to Re-Shuffle"></a>
+                <a href="#top" id="reshuffle" class="button M waves-effect waves-light"><i class="material-icons md-48 P4 M">shuffle</i></a>
+                <a href="#top" id="button4R" class="button R waves-effect waves-light"><i class="material-icons P4 R md-48">arrow_forward</i></a>
             </div>
+        </section>
+        <!-- *********************** -->
+        <section id="part5">
+
         </section>
 
 

@@ -2,11 +2,9 @@
 
 .main-container {
     min-height: 100vh;
-    /*background: linear-gradient(75deg, rgba(119, 205, 155, 0.82), rgba(69, 24, 115, 0.53));*/
     background: url(../images/footer_lodyas.png) repeat;
     display: flex;
     flex-direction: column;
-    /*justify-content: center;*/
     min-width: 350px;
 }
 
@@ -40,6 +38,10 @@ a {
     /*background-image: url(../images/ic_arrow_forward_black_24px.svg);*/
 }
 
+.M {
+    bottom: 20px;
+}
+
 .L {
     left: 0;
     /*background-image: url(../images/ic_arrow_back_black_24px.svg);*/
@@ -55,8 +57,6 @@ a {
 .header {
     width: 100%;
     text-align: center;
-    /*border: 2px black solid;*/
-    /*background: linear-gradient(125deg, rgba(69, 24, 115, 0.53), rgba(119, 205, 155, 0.82));*/
     background: rgba(65, 65, 65, .83);
     position: fixed;
     top: 0;
@@ -66,7 +66,6 @@ a {
     min-width: 300px;
     vertical-align: middle;
     z-index: 2;
-    /*border: 2px rgba(25, 176, 79, .65) double;*/
 }
 
 .header h1 {
@@ -267,6 +266,32 @@ a {
     width: 100%;
 }*/
 
+#p3header {
+    color: #fff8f0;
+}
+
+.mini-container h3 {
+    font-family: 'Changa', sans-serif;
+}
+
+@media screen and (orientation:portrait) {
+    #p3header {
+        font-size: 6vh;
+    }
+    .mini-container h3 {
+        font-size: 3vh;
+    }
+}
+
+@media screen and (orientation:landscape) {
+    #p3header {
+        font-size: 12vh;
+    }
+    .mini-container h3 {
+        font-size: 6vh;
+    }
+}
+
 input[type=range] {
     -webkit-appearance: none;
     width: 100%;
@@ -331,7 +356,7 @@ input[type=range]::-webkit-slider-thumb {
     height: 40px;
     width: 40px;
     border-radius: 38px;
-    background: #19647E;
+    background: rgba(40, 175, 176, 1);
     cursor: pointer;
     -webkit-appearance: none;
     margin-top: -16.95px;
@@ -357,7 +382,7 @@ input[type=range]::-moz-range-thumb {
     height: 40px;
     width: 40px;
     border-radius: 38px;
-    background: #19647E;
+    background: rgba(40, 175, 176, 1);
     cursor: pointer;
 }
 
@@ -390,7 +415,7 @@ input[type=range]::-ms-thumb {
     height: 40px;
     width: 40px;
     border-radius: 38px;
-    background: #19647E;
+    background: rgba(40, 175, 176, 1);
     cursor: pointer;
     height: 6.1px;
 }
@@ -425,12 +450,6 @@ input[type=range] {
     text-align: center;
     background: url(../images/ricepaper2.png) repeat;
     border-radius: 30px
-}
-
-.mini-container h3 {
-    font-family: 'Changa', sans-serif;
-    font-size: 3vh
-    /*background: linear-gradient(to right, rgba(255, 255, 255, 0.01) 0%, rgba(255, 255, 255, 0.01) 1%, rgba(255, 255, 255, 0.20) 26%, rgba(255, 255, 255, 0.20) 74%, rgba(255, 255, 255, 0) 100%);*/
 }
 
 .mini-container hr {
@@ -517,7 +536,14 @@ border: 2px rgba(69, 24, 115, .53) double;
     margin: 50px 0;
 }
 #reshuffle {
-    font-size: 30px;
+    position: fixed;
+    left: 50%;
+    transform: translateX(-50%);
+}
+.reshuffle {
+    position: fixed;
+    left: 50%;
+    transform: translateX(-50%);
 }
 .playlist {
     width: 100%;
@@ -528,4 +554,7 @@ border: 2px rgba(69, 24, 115, .53) double;
 .non-floater {
     overflow: hidden;
     ;
+}
+#hiddenReshuffle {
+    /*background: transparent;*/
 }

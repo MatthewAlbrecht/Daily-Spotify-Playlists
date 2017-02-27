@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>FestivalSelect</title>
+    <!-- scripts/js -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="../src/app.js"></script>
+
+    <!-- materialize -->
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.0/css/materialize.min.css">
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.0/js/materialize.min.js"></script>
+
+    <!-- style sheet -->
+    <link rel="stylesheet" href="../css/master.css">
+
+    <!-- fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Rubik+Mono+One|Changa+One|Changa|Montserrat:600" rel="stylesheet">
+
+    <!-- ICONS -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+</head>
+
+<body id="top">
+    <main class="main-container">
+        <!-- ******************** -->
+        <section id="part1">
+            <a href="#">
+                <div data-fest="bonnaroo" class="fest">
+                    <h1 data-fest="bonnaroo" class="name">Bonnaroo</h1>
+                </div>
+            </a>
+            <a href="#">
+                <div data-fest="coachella" class="fest coachella">
+                    <h1 data-fest="coachella" class="name">Coachella</h1>
+                </div>
+            </a>
+            <a href="#">
+                <div data-fest="lolapalooza" class="fest">
+                    <h1 data-fest="lolapalooza" class="name">Lolapalooza</h1>
+                </div>
+            </a>
+        </section>
+        <!-- ************************ -->
+        <section id="part2">
+            <div class="p2header header">
+                <h1 class="selections" id="selected1">Select artists which you enjoy listening to.</h1>
+                <h1 class="selections" id="selected2">From the remaining, select those artist that you would like to get in to.</h1>
+                <h1 class="selections" id="selected3">Of those left, select ones that you've heard of.</h1>
+
+            </div>
+
+            <div id="part2Box">
+                <div id="part2InnerBox">
+
+                </div>
+
+            </div>
+            <div id="divHeight1" class="buttonDiv">
+                <a href="#top" id="button2L" class="button L waves-effect waves-light"><i class="material-icons P2 L md-48">arrow_back</i></a>
+                <a href="#top" id="button2R" class="button R  waves-effect waves-light"><i class="material-icons P2 R md-48">arrow_forward</i></a>
+            </div>
+
+        </section>
+
+        <!-- ****************************** -->
+        <section id="part3">
+            <div class="part3header header">
+                <h1 id="p3header">Playlist Preferences</h1>
+            </div>
+            <div class="qContainer">
+
+                <div class="mini-container">
+                    <h3 class="question">How many artists do you want to listen to per day?</h3>
+
+                    <form action="#">
+                        <p class="range-field">
+                            <input class="slider" type="range" id="slider2" min="1" max="10" value="8" />
+                        </p>
+                    </form>
+                    <!-- <hr> -->
+                </div>
+                <div class="mini-container">
+                    <h3 class="question">How many songs from artists that you enjoy listening to would you like in each playlist?</h3>
+
+                    <form action="#">
+                        <p class="range-field">
+                            <input class="slider" type="range" id="slider3" min="1" max="5" value="3" />
+                        </p>
+                    </form>
+                    <!-- <hr> -->
+                </div>
+                <div class="mini-container">
+                    <h3 class="question">How many songs from artists that you want to get into would like in each playlist?</h3>
+
+                    <form action="#">
+                        <p class="range-field">
+                            <input class="slider" type="range" id="slider4" min="1" max="5" value="5" />
+                        </p>
+                    </form>
+                    <!-- <hr> -->
+                </div>
+                <div class="mini-container">
+                    <h3 class="question">How many songs from artists that you've heard of would you like in each playlist?</h3>
+
+                    <form action="#">
+                        <p class="range-field">
+                            <input class="slider" type="range" id="slider5" min="1" max="5" value="2" />
+                        </p>
+                    </form>
+                    <!-- <hr> -->
+                </div>
+                <div class="mini-container">
+                    <h3 class="question">How many songs from artists that you have not heard of would you like in each playlist?</h3>
+
+                    <form action="#">
+                        <p class="range-field">
+                            <input type="range" id="slider6" min="1" max="5" value="2" />
+                        </p>
+                    </form>
+
+                </div>
+
+            </div>
+            <div class="buttonDiv">
+                <a href="#top" id="button3L" class="button L waves-effect waves-light"><i class="material-icons P3 L md-48">arrow_back</i></a>
+                <a href="#top" id="button3R" class="button R  waves-effect waves-light"><i class="material-icons P3 R md-48">arrow_forward</i></a>
+            </div>
+        </section>
+        <!-- ************************ -->
+        <section id="part4">
+            <div id="playlist-container">
+
+            </div>
+
+            <div class="buttonDiv">
+                <a href="#top" id="button4L" class="button L waves-effect waves-light"><i class="material-icons P4 L md-48">arrow_back</i></a>
+                <a id="hiddenReshuffle" class="btn button tooltipped reshuffle" data-position="top" data-delay="50" data-tooltip="Hit me to Re-Shuffle"></a>
+                <a href="#top" id="reshuffle" class="button M waves-effect waves-light"><i class="material-icons md-48 P4 M">shuffle</i></a>
+                <a href="#top" id="button4R" class="button R waves-effect waves-light"><i class="material-icons P4 R md-48">arrow_forward</i></a>
+            </div>
+        </section>
+        <!-- *********************** -->
+        <section id="part5">
+
+        </section>
+
+
+
+    </main>
+
+</body>
+
+</html>
