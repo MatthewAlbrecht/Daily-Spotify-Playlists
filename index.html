@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Spotify</title>
+    <title>FestivalSelect</title>
     <!-- scripts/js -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script src="src/app.js"></script>
@@ -17,9 +17,11 @@
     <!-- style sheet -->
     <link rel="stylesheet" href="src/master.css">
 
-
     <!-- fonts -->
     <link href="https://fonts.googleapis.com/css?family=Rubik+Mono+One|Changa+One|Changa|Montserrat:600" rel="stylesheet">
+
+    <!-- ICONS -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
 </head>
 
@@ -49,20 +51,18 @@
                 <h1 class="selections" id="selected1">Select artists which you enjoy listening to.</h1>
                 <h1 class="selections" id="selected2">From the remaining, select those artist that you would like to get in to.</h1>
                 <h1 class="selections" id="selected3">Of those left, select ones that you've heard of.</h1>
+
             </div>
-            <div id="divHeight0" class="row buttonDiv">
-                <a href="#top" id="button1LT" class="col purple lighten-4 s2 btn-large  button1L  waves-effect waves-light">Previous</a>
-                <a href="#top" id="button1RT" class="col purple lighten-4 s2 offset-s8 btn-large button1R   waves-effect waves-light">Next</a>
-            </div>
+
             <div id="part2Box">
                 <div id="part2InnerBox">
 
                 </div>
 
             </div>
-            <div id="divHeight1" class="row buttonDiv">
-                <a href="#top" id="button1LB" class="col purple lighten-4 s2 btn-large  button1L  waves-effect waves-light">Previous</a>
-                <a href="#top" id="button1RB" class="col purple lighten-4 s2 offset-s8 btn-large button1R   waves-effect waves-light">Next</a>
+            <div id="divHeight1" class="buttonDiv">
+                <a href="#top" id="button1L" class="button L waves-effect waves-light"><i class="material-icons P1 L md-48">arrow_back</i></a>
+                <a href="#top" id="button1R" class="button R  waves-effect waves-light"><i class="material-icons P1 R md-48">arrow_forward</i></a>
             </div>
 
         </section>
@@ -72,80 +72,63 @@
             <div class="part3header">
                 <h1 id="p3header">Daily Playlist Settings</h1>
             </div>
-            <div id="divHeight2" class="row buttonDiv">
-                <a href="#top" id="button2LT" class="col s2 purple lighten-4 btn-large button2L  waves-effect waves-light">Previous</a>
-                <a href="#top" id="button2RT" class="col s2 purple lighten-4 offset-s8 btn-large button2R   waves-effect waves-light">Next</a>
-            </div>
             <div class="qContainer">
 
-                <div style="display: none" id="estimate">
-                    <h3>Estimated Playlist Length: <br><br> 54 Minutes</h3>
-                </div>
-                <div style="display: none" class="mini-container">
-                    <h3 class="question">How many days do you want your playlists spread out over?</h3>
-
-                    <form action="#">
-                        <p class="range-field">
-                            <input class="slider" type="range" id="slider1" min="1" max="30" />
-                        </p>
-                    </form>
-                    <hr>
-                </div>
                 <div class="mini-container">
                     <h3 class="question">How many artists do you want to listen to per day?</h3>
 
                     <form action="#">
                         <p class="range-field">
-                            <input class="slider" type="range" id="slider2" min="1" max="10" />
+                            <input class="slider" type="range" id="slider2" min="1" max="10" value="5" />
                         </p>
                     </form>
                     <hr>
                 </div>
                 <div class="mini-container">
-                    <h3 class="question">How many songs per artist that you enjoy?</h3>
+                    <h3 class="question">How many songs from artists that you enjoy listening to would you like in each playlist?</h3>
 
                     <form action="#">
                         <p class="range-field">
-                            <input class="slider" type="range" id="slider3" min="1" max="5" />
+                            <input class="slider" type="range" id="slider3" min="1" max="5" value="3" />
                         </p>
                     </form>
                     <hr>
                 </div>
                 <div class="mini-container">
-                    <h3 class="question">How many songs per artist that you want to get into?</h3>
+                    <h3 class="question">How many songs from artists that you want to get into would like in each playlist?</h3>
 
                     <form action="#">
                         <p class="range-field">
-                            <input class="slider" type="range" id="slider4" min="1" max="5" />
+                            <input class="slider" type="range" id="slider4" min="1" max="5" value="5" />
                         </p>
                     </form>
                     <hr>
                 </div>
                 <div class="mini-container">
-                    <h3 class="question">How many songs per artist that you've heard of?</h3>
+                    <h3 class="question">How many songs from artists that you've heard of would you like in each playlist?</h3>
 
                     <form action="#">
                         <p class="range-field">
-                            <input class="slider" type="range" id="slider5" min="1" max="5" />
+                            <input class="slider" type="range" id="slider5" min="1" max="5" value="2" />
                         </p>
                     </form>
                     <hr>
                 </div>
                 <div class="mini-container">
-                    <h3 class="question">Do you want the songs to be from their top ten, their latest album, or spread out over their discography?</h3>
+                    <h3 class="question">How many songs from artists that you have not heard of would you like in each playlist?</h3>
 
                     <form action="#">
                         <p class="range-field">
-                            <input type="range" id="slider6" min="1" max="30" />
+                            <input type="range" id="slider6" min="1" max="30" value="2" />
                         </p>
                     </form>
 
                 </div>
 
             </div>
-            <div id="divHeight3" class="row buttonDiv">
-                <a href="#top" id="button2LB" class="col purple lighten-4 s2 btn-large  button2L  waves-effect waves-light">Previous</a>
-                <a href="#top" id="button2RB" class="col purple lighten-4 s2 offset-s8 btn-large button2R   waves-effect waves-light">Next</a>
+            <div id="divHeight1" class="buttonDiv">
+                <a href="#top" id="button2L" class="button L waves-effect waves-light"><i class="material-icons P2 L md-48">arrow_back</i></a>
+                <a href="#top" id="button2R" class="button R  waves-effect waves-light"><i class="material-icons P2 R md-48">arrow_forward</i></a>
             </div>
         </section>
         <!-- ************************ -->

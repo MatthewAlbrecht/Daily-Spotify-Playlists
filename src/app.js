@@ -1,4 +1,4 @@
-let rooString = "U2, Red Hot Chili Peppers, The Weeknd, Chance The Rapper, Major Lazer, Flume, Lorde, The xx, Travis Scott, Cage The Elephant, Marhsmello, The Head and The Heart, Big Gigantic, Glass Animals, Future Islands, Tory Lanez, Tove Lo, Crystal Castles, Umphrey's McGee, Portugal The Man, Tegan and Sara, Milky Chance, Yellow Claw, Cold War Kids, Kaleo, Russ, Jon Bellion, Royal Blood, The Strumbellas, Car Seat Headrest, Michael Kiwanuka, Gallant, Louis The Child, D.R.A.M., Borgore, Dua Lipa, NGHTMRE, Getter, Snails, James Vincent McMorrow, Joseph, Illenium, Flatbush Zombies, Amine, Claude Vonstroke, Francis and The Lights, Margo Price, BADBADNOTGOOD, The Front Bottoms, G. Jones, Preservation Hall Jazz Band, Greensky Bluegrass, Cam, Bad Suns, Coin, Mandolin Orange, Eden, Rainbow Kitten Surprise, Ookay, Herobust, Kevin Morby, Goldfish, No Name, Leon, Albin Lee Meldau, San Holo, Rezz, Angelique Kidjo, Haywyre, Deap Vally, Hippo Campus, Luke Combs, Vanic, Unlike Pluto, Kaiydo, Ten Fe, Nightly, The Orwells, Stick Figure, Mondo Cozmo, Barclay Crenshaw v. Goody Grace, July Talk, Turkuaz, Lucy Dacus, Klangstof, Kevin Abstract, Khruangbin, The Lemon Twigs, Wilderado, Twin Limb, Big Jesus, Twiddle, White Reaper, River Whyless, Alexandra Savior, Lukas Nelson, Promise Of The Real, Innanet James, Ganja White Night, Welles, Aaron Lee Tasjan"
+let rooString = "U2, Red Hot Chili Peppers, The Weeknd, Chance The Rapper, Major Lazer, Flume, Lorde, The xx, Travis Scott, Cage The Elephant, Marshmello, The Head and The Heart, Big Gigantic, Glass Animals, Future Islands, Tory Lanez, Tove Lo, Crystal Castles, Umphrey's McGee, Portugal The Man, Tegan and Sara, Milky Chance, Yellow Claw, Cold War Kids, Kaleo, Russ, Jon Bellion, Royal Blood, The Strumbellas, Car Seat Headrest, Michael Kiwanuka, Gallant, Louis The Child, D.R.A.M., Borgore, Dua Lipa, NGHTMRE, Getter, Snails, James Vincent McMorrow, Joseph, Illenium, Flatbush Zombies, Amine, Claude Vonstroke, Francis and The Lights, Margo Price, BADBADNOTGOOD, The Front Bottoms, G. Jones, Preservation Hall Jazz Band, Greensky Bluegrass, Cam, Bad Suns, Coin, Mandolin Orange, Eden, Rainbow Kitten Surprise, Ookay, Herobust, Kevin Morby, Goldfish, No Name, Leon, Albin Lee Meldau, San Holo, Rezz, Angelique Kidjo, Haywyre, Deap Vally, Hippo Campus, Luke Combs, Vanic, Unlike Pluto, Kaiydo, Ten Fe, Nightly, The Orwells, Stick Figure, Mondo Cozmo, Barclay Crenshaw, Goody Grace, July Talk, Turkuaz, Lucy Dacus, Klangstof, Kevin Abstract, Khruangbin, The Lemon Twigs, Wilderado, Twin Limb, Big Jesus, Twiddle, White Reaper, River Whyless, Alexandra Savior, Lukas Nelson, Promise Of The Real, Innanet James, Ganja White Night, Welles, Aaron Lee Tasjan"
 
 
 $(function() {
@@ -11,7 +11,11 @@ $(function() {
   let selectionsObj = {}
   let artistObj = {}
   let posterArray = []
-  let nameArray = []
+  let nameArrays = {}
+  let playlistIds = []
+  const weightArray = () => [78, 83, 86, 88, 90, 92, 94, 96, 98, 100]
+
+
 
 
   rooString = rooString.split(", ")
@@ -19,10 +23,10 @@ $(function() {
   let posterCounter = 1
 
   part1()
-  part2()
-  part3()
-  part4()
-  part5()
+  // part2()
+  // part3()
+  // part4()
+  // part5()
 
   function part1() {
     createHelperObjects()
@@ -98,20 +102,20 @@ $(function() {
 
     partsObj = {
       part1: {
-        on: false,
+        on: true,
         hasCalled: true
       },
       part2: {
         on: false,
-        hasCalled: true
+        hasCalled: false
       },
       part3: {
         on: false,
-        hasCalled: true
+        hasCalled: false
       },
       part4: {
-        on: true,
-        hasCalled: true
+        on: false,
+        hasCalled: false
       }
     }
 
@@ -158,11 +162,11 @@ $(function() {
   }
 
   function nextSelectionButton() {
-    $('.button1R,.button1L').click(function(e) {
+    $('.P1').click(function(e) {
       e.preventDefault()
       smoothTop(e)
 
-      if ($(e.target).hasClass('button1R')) {
+      if ($(e.target).hasClass('R')) {
         nextHeader()
       } else {
         prevHeader()
@@ -273,7 +277,8 @@ $(function() {
           "Herobust",
           "No Name"
         ],
-        tag: 1
+        tag: 1,
+        songAmount: $('#slider3').val()
       },
       "wants": {
         names: [
@@ -302,7 +307,9 @@ $(function() {
           "The Orwells",
           "Stick Figure"
         ],
-        tag: 2
+        tag: 2,
+        songAmount: $('#slider4').val()
+
       },
       "heardOf": {
         names: [
@@ -318,7 +325,9 @@ $(function() {
           "Ten Fe",
           "Big Jesus"
         ],
-        tag: 3
+        tag: 3,
+        songAmount: $('#slider5').val()
+
       },
       "other": {
         names: [
@@ -348,7 +357,8 @@ $(function() {
           "Kaiydo",
           "Nightly",
           "Mondo Cozmo",
-          "Barclay Crenshaw v. Goody Grace",
+          "Barclay Crenshaw",
+          "Goody Grace",
           "July Talk",
           "Turkuaz",
           "Lucy Dacus",
@@ -369,7 +379,8 @@ $(function() {
           "Welles",
           "Aaron Lee Tasjan"
         ],
-        tag: 3
+        tag: 3,
+        songAmount: $('#slider6').val()
       }
     }
   }
@@ -402,7 +413,7 @@ $(function() {
 
       for (name of artistObj[selects].names) {
         // console.log('here');
-        let hx = $(`<h${artistObj[selects].tag}></h${artistObj[selects].tag}>`)
+        let hx = $(`<h${artistObj[selects].tag} data-song-amounts="${artistObj[selects].songAmount}"></h${artistObj[selects].tag}>`)
         // console.log(posterArray[counter % posterAmount].children(1)[0]);
         console.log(counter, name);
         posterArray[counter % posterAmount].children().eq(1).append(hx.text(name))
@@ -417,6 +428,7 @@ $(function() {
     for (var i = 0; i < posterArray.length; i++) {
       poster = posterArray[i]
       poster.children().eq(0).text(`Daily Playlist #${i+1}`)
+      poster.children().eq(0).attr('data-list-num', i + 1)
       poster.appendTo($('#playlist-container'))
     }
   }
@@ -440,18 +452,42 @@ $(function() {
 
   // -------------------Part 5 -----------------------
   function part5() {
-    $('.poster').click((e) => {
-      nameArray = []
-      if ($(e.target).hasClass('poster')) {
-        let children = $(e.target).children().each((i, child) => nameArray.push($(child).text()))
-      } else {
-        let children = $(e.target).parent().children().each((i, child) => nameArray.push($(child).text()))
-        console.log(nameArray);
-      }
-      posterToSpotify()
-    })
+
+    $('.poster').click(posterClick)
+
+  }
+
+  function posterClick(e) {
+    nameArrays = {
+      names: [],
+      amounts: [],
+      target: $()
+    }
 
 
+    getNameArraysInfo(e)
+
+
+
+  }
+
+  function getNameArraysInfo(e) {
+    if ($(e.target).hasClass('poster')) {
+      $(e.target).children().each((i, child) => {
+        nameArrays.names.push($(child).text())
+        nameArrays.amounts.push($(child).attr('data-song-amounts'))
+        nameArrays.target = $(e.target)
+      })
+    } else {
+      $(e.target).parent().children().each((i, child) => {
+        nameArrays.names.push($(child).text())
+        nameArrays.amounts.push($(child).attr('data-song-amounts'))
+        nameArrays.target = $(e.target).parent()
+      })
+
+    }
+
+    posterToSpotify()
   }
 
   function getArtists(artist) {
@@ -480,27 +516,64 @@ $(function() {
 
 
   function posterToSpotify() {
-    let searchResults = nameArray.map(function(name) {
+    let searchResults = nameArrays.names.map(function(name) {
       return getArtists(name)
     })
 
     $.when(...searchResults)
       .then((...searchResults) => {
         searchResults = searchResults.map((a) => a[0].artists.items[0])
-        getTopTracks(searchResults)
         console.log(searchResults);
+        getTopTracks(searchResults)
       })
   }
 
   function getTopTracks(artists) {
-    let tTracks = artists.map(artist => getArtistTopTracks(artist.id))
+    let tTracks = artists.filter((artist) => artist)
+      .map(artist => getArtistTopTracks(artist.id))
     $.when(...tTracks)
       .then((...tTrackss) => {
-        let topTracks = tTracks.map(t => t.responseJSON.tracks)
-        console.log(topTracks);
+        let topTracks = tTracks.map(artist => artist.responseJSON.tracks)
+          .map((artist10) => artist10.map((track) => track.id))
+        playlistIds = []
+        filterTopSongsByWeight(topTracks)
+
       })
   }
 
+  function filterTopSongsByWeight(topTracks) {
+
+    topTracks.forEach((songIds, j) => {
+      let weights = weightArray()
+      let tenthWeight = weights[9]
+
+      for (let i = 0; i < nameArrays.amounts[j]; i++) {
+        let ran = Math.floor(Math.random() * tenthWeight)
+        let hasAdded = false
+        for (let k = 0; k < 10; k++) {
+          if (ran < weights[k] && !hasAdded) {
+            playlistIds.push(songIds[k])
+            weights.splice(k, 0, -Infinity)
+            hasAdded = true
+          }
+        }
+      }
+
+    })
+    createPlaylist()
+
+  }
+
+  function createPlaylist() {
+    const baseUrl = `https://embed.spotify.com/?theme=white&uri=spotify:trackset:Daily Playlist ${nameArrays.target.prev().attr('data-list-num')}:`;
+    playlistIds.shuffle().join(',');
+
+    nameArrays.target.parent().append(`<div class="non-floater"><iframe class="playlist" src="${baseUrl + playlistIds}" height="400"></iframe></div>`);
+    nameArrays.target.off("click", posterClick)
+    nameArrays.target.hide();
+  }
+
+  // END OF DOCREADY
 })
 
 Array.prototype.shuffle = function() {
