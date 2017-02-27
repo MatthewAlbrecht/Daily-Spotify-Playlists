@@ -1,12 +1,14 @@
-let rooString = "U2, Red Hot Chili Peppers, The Weeknd, Chance The Rapper, Major Lazer, Flume, Lorde, The xx, Travis Scott, Cage The Elephant, Marshmello, The Head and The Heart, Big Gigantic, Glass Animals, Future Islands, Tory Lanez, Tove Lo, Crystal Castles, Umphrey's McGee, Portugal The Man, Tegan and Sara, Milky Chance, Yellow Claw, Cold War Kids, Kaleo, Russ, Jon Bellion, Royal Blood, The Strumbellas, Car Seat Headrest, Michael Kiwanuka, Gallant, Louis The Child, D.R.A.M., Borgore, Dua Lipa, NGHTMRE, Getter, Snails, James Vincent McMorrow, Joseph, Illenium, Flatbush Zombies, Amine, Claude Vonstroke, Francis and The Lights, Margo Price, BADBADNOTGOOD, The Front Bottoms, G. Jones, Preservation Hall Jazz Band, Greensky Bluegrass, Cam, Bad Suns, Coin, Mandolin Orange, Eden, Rainbow Kitten Surprise, Ookay, Herobust, Kevin Morby, Goldfish, No Name, Leon, Albin Lee Meldau, San Holo, Rezz, Angelique Kidjo, Haywyre, Deap Vally, Hippo Campus, Luke Combs, Vanic, Unlike Pluto, Kaiydo, Ten Fe, Nightly, The Orwells, Stick Figure, Mondo Cozmo, Barclay Crenshaw, Goody Grace, July Talk, Turkuaz, Lucy Dacus, Klangstof, Kevin Abstract, Khruangbin, The Lemon Twigs, Wilderado, Twin Limb, Big Jesus, Twiddle, White Reaper, River Whyless, Alexandra Savior, Lukas Nelson, Promise Of The Real, Innanet James, Ganja White Night, Welles, Aaron Lee Tasjan"
+let rooString = "U2, Red Hot Chili Peppers, The Weeknd, Chance The Rapper, Major Lazer, Flume, Lorde, The xx, Travis Scott, Cage The Elephant, Marshmello, The Head and The Heart, Big Gigantic, Glass Animals, Future Islands, Tory Lanez, Tove Lo, Crystal Castles, Umphrey's McGee, Portugal The Man, Tegan and Sara, Milky Chance, Yellow Claw, Cold War Kids, Kaleo, Russ, Jon Bellion, Royal Blood, The Strumbellas, Car Seat Headrest, Michael Kiwanuka, Gallant, Louis The Child, D.R.A.M., Borgore, Dua Lipa, NGHTMRE, Getter, Snails, James Vincent McMorrow, Joseph, Illenium, Flatbush Zombies, Amine, Claude Vonstroke, Francis and The Lights, Margo Price, BADBADNOTGOOD, The Front Bottoms, G. Jones, Preservation Hall Jazz Band, Greensky Bluegrass, Cam, Bad Suns, Coin, Mandolin Orange, Eden, Rainbow Kitten Surprise, Ookay, Herobust, Kevin Morby, Goldfish, Noname, Leon, Albin Lee Meldau, San Holo, Rezz, Angelique Kidjo, Haywyre, Deap Vally, Hippo Campus, Luke Combs, Vanic, Unlike Pluto, Kaiydo, Ten Fe, Nightly, The Orwells, Stick Figure, Mondo Cozmo, Barclay Crenshaw, Goody Grace, July Talk, Turkuaz, Lucy Dacus, Klangstof, Kevin Abstract, Khruangbin, The Lemon Twigs, Wilderado, Twin Limb, Big Jesus, Twiddle, White Reaper, River Whyless, Alexandra Savior, Lukas Nelson, Promise Of The Real, Innanet James, Ganja White Night, Welles, Aaron Lee Tasjan"
 
 
 $(function() {
   let festChoice = ''
-  let currentPart = 1;
+  let currentPart = 1
   let part2InnerBox = $('#part2InnerBox')
   let part4Element = $('#part4')
   let currentSelection = 'selected1'
+  let currentHeader = null
+  let currentBody = null
   let partsObj = {}
   let selectionsObj = {}
   let artistObj = {}
@@ -34,12 +36,17 @@ $(function() {
     part2InnerBox.html('')
     $('.fest').click(function(e) {
       festChoice = $(e.target).attr('data-fest')
+
       if (!partsObj.part2.hasCalled) {
         part2();
       }
       changePartObj(1)
+      currentHeader = $('.p2header')
+      showHeader()
 
     })
+
+    $(window).on("orientationchange", setBody)
 
   }
 
@@ -53,24 +60,41 @@ $(function() {
     nextSelectionButton()
   }
 
+
+
+  function setBody() {
+    if (currentBody) {
+      currentBody.css('margin-top', `${currentHeader.height()+25}px`)
+
+    }
+  }
+
   function showHeader() {
     for (let selection in selectionsObj) {
       if (selectionsObj[selection].value === true) {
         $(`#${selection}`).show()
+        currentHeader = $('.p2header')
+
+
+        console.log(currentHeader.height());
       } else {
         $(`#${selection}`).hide()
       }
     }
+    setBody()
   }
 
   function showPart() {
     for (let part in partsObj) {
       if (partsObj[part].on === true) {
         $(`#${part}`).show()
+        currentBody = partsObj[part].container
+
       } else {
         $(`#${part}`).hide()
       }
     }
+    setBody()
   }
 
   function changePartObj(n) {
@@ -86,15 +110,18 @@ $(function() {
     selectionsObj = {
       selected1: {
         value: true,
-        names: []
+        names: [],
+        element: $(`#selected1`)
       },
       selected2: {
         value: false,
-        names: []
+        names: [],
+        element: $(`#selected2`)
       },
       selected3: {
         value: false,
-        names: []
+        names: [],
+        element: $(`#selected3`)
       },
 
     }
@@ -103,19 +130,23 @@ $(function() {
     partsObj = {
       part1: {
         on: true,
-        hasCalled: true
+        hasCalled: true,
+        container: null
       },
       part2: {
         on: false,
-        hasCalled: false
+        hasCalled: false,
+        container: $('#part2Box')
       },
       part3: {
         on: false,
-        hasCalled: false
+        hasCalled: false,
+        container: $('.qContainer')
       },
       part4: {
         on: false,
-        hasCalled: false
+        hasCalled: false,
+        container: $('#playlist-container')
       }
     }
 
@@ -144,9 +175,9 @@ $(function() {
     if (nextNumber != 4) {
       changeHeader(nextNumber)
     } else {
-
+      currentHeader = $('.part3header')
       if (!partsObj.part3.hasCalled) {
-        console.log('hehehehehehhe');
+
         part3()
       }
       changePartObj(1)
@@ -162,11 +193,13 @@ $(function() {
   }
 
   function nextSelectionButton() {
-    $('.P1').click(function(e) {
+    console.log('eheheheheheheh');
+    $('.P2').click(function(e) {
       e.preventDefault()
       smoothTop(e)
 
       if ($(e.target).hasClass('R')) {
+        console.log('hehehehehehehehehheheheheheh');
         nextHeader()
       } else {
         prevHeader()
@@ -185,10 +218,11 @@ $(function() {
   }
 
   function part3() {
-    $('.button2L').click((e) => {
+    $('.P3.L').click((e) => {
       changePartObj(-1)
+      showHeader()
     })
-    $('.button2R').click((e) => {
+    $('.P3.R').click((e) => {
       if (!partsObj.part4.hasCalled) {
         part4()
       }
@@ -222,13 +256,13 @@ $(function() {
       setTimeout(function() {
         createPosterDivs(Math.floor(artistDivide), artistMod)
 
-      }, 1250)
+      }, 1100)
     })
 
-    $('.button3R').click((e) => {
+    $('.P4.R').click((e) => {
       smoothTop(e)
       $('#reshuffle').parent().hide()
-      $('.button3R').parent().hide()
+      $('#button4R').parent().hide()
       part5()
 
     })
@@ -275,7 +309,7 @@ $(function() {
           "Snails",
           "Flatbush Zombies",
           "Herobust",
-          "No Name"
+          "NoName"
         ],
         tag: 1,
         songAmount: $('#slider3').val()
@@ -314,7 +348,7 @@ $(function() {
       "heardOf": {
         names: [
           "Major Lazer",
-          "Marhsmello",
+          "Marshmello",
           "Tory Lanez",
           "Tove Lo",
           "The Strumbellas",
