@@ -6,6 +6,7 @@ rooString = rooString.split(", ")
 $(function() {
   $('.modal').modal();
   let abc = $('.artist-boxes-container')
+  let $modal = $('.modal-content')
   cPart1()
 
   function cPart1() {
@@ -19,8 +20,9 @@ $(function() {
         bottom: $target.offset().top + $target.outerHeight() - $this.height()
       });
     });
-
     createArtistBoxes(rooString, abc, 'computer')
+
+
 
     $('.artist-boxes-container.bonnaroo').click((e) => {
       e.preventDefault()
@@ -29,11 +31,15 @@ $(function() {
       if (target.hasClass('artist-boxes')) {
         selectArtist(target.children(), $('li .active').attr('data-selection'))
       }
-      //  else if (target.hasClass('dots')) {
-      //   selectArtist(target, $('li .active').attr('data-selection'))
-      // }
+
     })
 
+    $('.modal-action').click(function(e) {
+      e.preventDefault()
+      console.log(setInputObj(abc, $modal))
+      localStorage.setItem('inputObject', JSON.stringify(setInputObj(abc, $modal)))
+      console.log(JSON.parse(localStorage.getItem('inputObject')));
+    })
   }
 
 })
