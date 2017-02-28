@@ -449,7 +449,7 @@ input[type=range] {
     height: auto;
     text-align: center;
     background: url(../images/ricepaper2.png) repeat;
-    border-radius: 30px
+    border-radius: 7px
 }
 
 .mini-container hr {
@@ -524,7 +524,8 @@ border: 2px rgba(69, 24, 115, .53) double;
     border: 3px #fff8f0 solid;
     text-align: center;
     background: url(../images/ricepaper2.png) repeat;
-    transform: skewX(-2deg);
+    /*transform: skewX(-1deg);*/
+
     transform-style: preserve-3d;
     transition: transform 1s;
     /*border: 6px outset #2eb9ce;*/
