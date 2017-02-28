@@ -23,9 +23,10 @@ $(function() {
 
     $('.artist-boxes-container.bonnaroo').click((e) => {
       e.preventDefault()
+      console.log(e.target);
       let target = $(e.target)
       if (target.hasClass('artist-boxes')) {
-        selectArtist(target.first().first(), $('li .active').attr('data-selection'))
+        selectArtist(target.children(), $('li .active').attr('data-selection'))
       } else if (target.hasClass('dots')) {
         selectArtist(target, $('li .active').attr('data-selection'))
       }
