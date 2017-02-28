@@ -3,7 +3,7 @@ let createArtistBoxes = (nameArray, parent, device) => {
     let artistName = nameArray[i]
     switch (device) {
       case 'computer':
-        parent.append(`<a href=""><span class="artist-boxes" data-artist="${artistName}"><i class="material-icons dots">brightness_1</i> ${artistName}</span></a>`)
+        parent.append(`<a href=""><span class="artist-boxes" data-artist="${artistName}"><i class="material-icons dots">radio_button_checked</i> ${artistName} <i class="material-icons dots">radio_button_checked</i></span></a>`)
         break;
 
       case 'mobile':
@@ -13,4 +13,6 @@ let createArtistBoxes = (nameArray, parent, device) => {
     }
   }
 }
-let selectArtist = (target, className) => target.toggleClass(className)
+let selectArtist = (target, className) => {
+  target.toggleClass(className)
+}

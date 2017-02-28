@@ -87,7 +87,7 @@ ul.tabs {
 #s1, #s2, #s3 {
     height: auto;
     text-align: center;
-    font-size: 4vmin;
+    font-size: 7vmin;
     font-family: "Changa", sans-serif;
     margin: 15px 0;
     color: #fff8f0;
@@ -105,8 +105,8 @@ ul.tabs {
     border: 4px transparent solid;
     display: inline-block;
     color: #fff8f0;
-    margin: 3px 1px;
-    padding: 7px;
+    margin: 3px 0;
+    padding: 7px 4px;
     line-height: 3px;
 }
 
@@ -137,6 +137,86 @@ div.row {
 
 .step-1-container {
     margin: 15px;
-    height: 100px;
+    height: 106px;
     border: 2px white solid;
+}
+
+.part1 {
+    margin-bottom: 0px;
+}
+
+.step-2-container {
+    margin: 15px;
+    height: 106px;
+    border: 2px white solid;
+}
+
+.part2 {
+    margin-top: 0;
+}
+
+.right-arrow.material-icons {
+    font-size: 100px;
+    color: #fff8f0;
+}
+
+.right-arrow-container {
+    float: right;
+    display: inline-block;
+    height: auto;
+}
+
+.settings.material-icons {
+    font-size: 50px;
+    color: #fff8f0;
+    margin: 26px;
+}
+
+.settings-container {
+    float: right;
+    display: inline-block;
+    height: auto;
+}
+
+.step-name {
+    float: left;
+    margin: 25px -31px;
+    /*display: inline-block;*/
+    -ms-transform: rotate(-90deg);
+    /* IE 9 */
+    -webkit-transform: rotate(-90deg);
+    /* Chrome, Safari, Opera */
+    transform: rotate(-90deg);
+    /*border: 2px solid white;*/
+    width: 100px;
+    height: auto;
+    font-size: 19px;
+    color: #fff8f0;
+}
+
+.instructions {
+    /*float: right;*/
+    margin: 7px 7px 0 7px;
+    height: 86px;
+    border: 2px white solid;
+    width: 65%;
+    display: inline-block;
+}
+
+.step-3-container {
+    margin: 15px;
+    height: 106px;
+    border: 2px white solid;
+}
+
+.modal-footer {
+    background: url(../images/subtle_dots.png) repeat;
+}
+
+.modal-footer {
+    /*background: url(../images/debut_light_@2X_dark.png) repeat;*/
+}
+
+.modal h4 {
+    text-align: center;
 }

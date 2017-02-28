@@ -4,6 +4,7 @@ rooString = rooString.split(", ")
 
 
 $(function() {
+  $('.modal').modal();
   let abc = $('.artist-boxes-container')
   cPart1()
 
@@ -27,9 +28,10 @@ $(function() {
       let target = $(e.target)
       if (target.hasClass('artist-boxes')) {
         selectArtist(target.children(), $('li .active').attr('data-selection'))
-      } else if (target.hasClass('dots')) {
-        selectArtist(target, $('li .active').attr('data-selection'))
       }
+      //  else if (target.hasClass('dots')) {
+      //   selectArtist(target, $('li .active').attr('data-selection'))
+      // }
     })
 
   }
