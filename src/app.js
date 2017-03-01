@@ -17,54 +17,64 @@ let selectArtist = (target, className) => {
   target.toggleClass(className)
 }
 
-let setInputObj = (spans, modal) => {
-  inputObject = {
-    artists: updateArtistObj(modal, ['green-dot', 'blue-dot', 'grey-dot']),
-
-    artistAmount: modal.find('input[type=range]').eq(0).val()
-
-  }
-  return inputObject
-}
-
-let updateArtistObj = (modal, classNameArray) => {
-  let artistObj = {
+// let setInputObj = (spans, modal) => {
+//   inputObject = {
+//     artists: updateArtistObj(modal, ['green-dot', 'blue-dot', 'grey-dot']),
+//
+//     artistAmount: modal.find('input[type=range]').eq(0).val()
+//
+//   }
+//   localStorage.setItem('artistObject', JSON.stringify(artistObj))
+// }
+let artistObj = {}
+let updateArtistObj = (modal, classNameArray, shouldDo) => {
+  artistObj = {
     liked: {
-      names: [],
       tag: 1,
       songAmount: modal.find('input[type=range]').eq(1).val()
+
     },
     wants: {
-      names: [],
       tag: 2,
       songAmount: modal.find('input[type=range]').eq(2).val()
     },
     heardOf: {
-      names: [],
       tag: 3,
       songAmount: modal.find('input[type=range]').eq(3).val()
     },
     other: {
-      names: [],
       tag: 3,
       songAmount: modal.find('input[type=range]').eq(4).val()
-    }
+    },
+    artistAmount: modal.find('input[type=range]').eq(0).val()
+
+
   }
-  $('.artist-boxes').each((i, band) => {
 
-    let name = $(band).attr('data-artist')
+  if (shouldDo) {
+    artistObj['liked']['names'] = []
+    artistObj['wants']['names'] = []
+    artistObj['heardOf']['names'] = []
+    artistObj['other']['names'] = []
+    $('.artist-boxes').each((i, band) => {
 
-    if ($(band).children().hasClass(classNameArray[0])) {
-      console.log('heheheheheh', name);
-      artistObj.liked.names.push(name)
-    } else if ($(band).children().hasClass(classNameArray[1])) {
-      artistObj.wants.names.push(name)
-    } else if ($(band).children().hasClass(classNameArray[2])) {
-      artistObj.heardOf.names.push(name)
-    } else {
-      artistObj.other.names.push(name)
-    }
+      let name = $(band).attr('data-artist')
 
-  })
-  return artistObj;
+      if ($(band).children().hasClass(classNameArray[0])) {
+        console.log('heheheheheh', name);
+        artistObj.liked.names.push(name)
+      } else if ($(band).children().hasClass(classNameArray[1])) {
+        artistObj.wants.names.push(name)
+      } else if ($(band).children().hasClass(classNameArray[2])) {
+        artistObj.heardOf.names.push(name)
+      } else {
+        artistObj.other.names.push(name)
+      }
+
+    })
+  }
+
+  localStorage.setItem('artistObj', JSON.stringify(artistObj))
+
+  console.log(JSON.parse(localStorage.getItem('artistObj')));
 }

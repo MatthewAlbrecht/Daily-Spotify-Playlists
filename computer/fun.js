@@ -9,6 +9,7 @@ $(function() {
   let $modal = $('.modal-content')
   cPart1()
 
+
   function cPart1() {
     $('.nav-bars').each(function() {
       var $this = $(this);
@@ -30,16 +31,16 @@ $(function() {
       let target = $(e.target)
       if (target.hasClass('artist-boxes')) {
         selectArtist(target.children(), $('li .active').attr('data-selection'))
+        updateArtistObj($modal, ['green-dot', 'blue-dot', 'grey-dot'], true)
       }
 
     })
+    $('input[type=range]').change(function(e) {
+      console.log('heheheheheh');
+      updateArtistObj($modal, null, false)
 
-    $('.modal-action').click(function(e) {
-      e.preventDefault()
-      console.log(setInputObj(abc, $modal))
-      localStorage.setItem('inputObject', JSON.stringify(setInputObj(abc, $modal)))
-      console.log(JSON.parse(localStorage.getItem('inputObject')));
     })
+
   }
 
 })

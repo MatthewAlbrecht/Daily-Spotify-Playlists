@@ -1,5 +1,5 @@
 html, body, .block {
-    height: auto;
+    /*height: auto;*/
 }
 
 a {
@@ -119,16 +119,16 @@ ul.tabs {
     color: rgba(30, 215, 96, 0);
 }
 
-.green-dot.dots {
-    color: #1ed760;
+.grey-dot.dots {
+    color: #fff8f0;
 }
 
 .blue-dot.dots {
     color: #28AFB0;
 }
 
-.grey-dot.dots {
-    color: #fff8f0;
+.green-dot.dots {
+    color: #1ed760;
 }
 
 div.row {
